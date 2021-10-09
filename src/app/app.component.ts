@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GitHubService } from "./github.service";
 
 @Component({
@@ -7,6 +7,14 @@ import { GitHubService } from "./github.service";
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  constructor(public readonly gitHubService: GitHubService) {}
+export class AppComponent implements OnInit {
+  toTriageCount: number;
+  toTestCount: number;
+
+  constructor(private readonly gitHubService: GitHubService) {}
+
+  ngOnInit() {
+    this.gitHubService.getToTriageCount().subscribe((count) => this.toTriageCount = count);
+    this.gitHubService.getToTestCount().subscribe((count) => this.toTestCount = count);
+  }
 }
