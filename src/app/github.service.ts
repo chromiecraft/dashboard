@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 
 interface GitHubResponse {
   total_count: number;
@@ -16,7 +16,7 @@ export class GitHubService {
 
   getCount(filter: string): Observable<number> {
     return this.http.get<GitHubResponse>(`https://api.github.com/search/issues?page=0&per_page=1&q=${filter}`).pipe(
-      map((result) => result.total_count),
+      map((result) => result.total_count ),
     );
   }
 
