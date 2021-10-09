@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h1 class="text-center">AC/CC Development Status</h1>
+
+  <hr>
+  <h2>Bug reports</h2>
+  <p class="lead">Bug reports waiting to be triaged: <strong>{{ gitHubService.getToTriageCount() | async }}</strong> <a href="https://github.com/chromiecraft/chromiecraft/issues?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Triage%22">(see all)</a></p>
+  <p>Want to help? Check our <a href="https://github.com/chromiecraft/chromiecraft/#for-contributors-how-to-triagereport-bugs">bug triaging guide</a>.</p>
+
+  <hr>
+  <h2>Testing</h2>
+  <p class="lead">PRs waiting to be tested: <strong>{{ gitHubService.getToTestCount() | async }}</strong> <a href="https://github.com/chromiecraft/chromiecraft/issues?q=is%3Aissue+is%3Aopen+label%3A%22Needs+Triage%22">(see all)</a></p>
+  <p>Want to help? Check our <a href="https://www.azerothcore.org/wiki/how-to-test-a-pr">PR testing guide</a>.</p>
+
+</div>
